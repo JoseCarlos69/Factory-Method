@@ -58,3 +58,35 @@ class PessoaFactory {
         }
     }
 }
+
+function verificar() {
+    const nome = document.getElementById("nome").value;
+    const relacao = document.getElementById("relacao").value;
+
+    const pessoa = PessoaFactory.criarPessoa(relacao);
+
+    if (nome === "" || relacao === "") {
+        document.getElementById("mensagem").innerHTML = `Preencha o(s) campo(s) vazio(s)`;
+        return;
+    }
+    if (pessoa) {
+        document.getElementById("mensagem").innerHTML = `${nome} tem relação com a instituição como ${pessoa.mensagem()}`;
+    }
+    else {
+        document.getElementById("mensagem").innerHTML = `${nome} não tem relação com a instituição, acompanhar até a secretaria`;
+    }
+}
+
+function limpar() {
+    document.getElementById("nome").value = "";
+    document.getElementById("relacao").value = "";
+    document.getElementById("mensagem").innerHTML = "";
+}
+
+function sair() {
+    window.location.href = "index.html";
+}
+
+function iniciar() {
+    window.location.href = "programa.html";
+}
